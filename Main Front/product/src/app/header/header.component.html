@@ -1,0 +1,27 @@
+<div class="header">
+  <table>
+    <tr>
+      <td>
+        <a [routerLink]="['/']" aria-label="Home">
+          <img src="/assets/GMART.png" alt="GMART logo">
+        </a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="phrase">Where you enjoy the most shopping experience</td>
+    </tr>
+
+    <tr>
+      <td class="menu-cell">
+        <button
+          class="button1"
+          *ngFor="let menu of menus"
+          type="button"
+          [routerLink]="['/', menu.routerPath]">
+          {{ menu.name }}
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>
