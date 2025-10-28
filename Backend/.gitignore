@@ -1,0 +1,78 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> a6689d9740a7840511b4df4480da5bf6dc3d0c3a
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!src/main/**/target/
+!src/test/**/target/
+
+### IntelliJ IDEA ###
+.idea/modules.xml
+.idea/jarRepositories.xml
+.idea/compiler.xml
+.idea/libraries/
+*.iws
+*.iml
+*.ipr
+
+### Eclipse ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!src/main/**/build/
+!src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+### Mac OS ###
+<<<<<<< HEAD
+.DS_Store
+=======
+.DS_Store
+=======
+# IntelliJ / Java / Spring Boot
+/.idea/
+/target/
+/*.iml
+*.class
+*.log
+
+# Maven / Gradle caches
+/.mvn/
+/.build/
+
+# Node / Angular
+node_modules/
+dist/
+npm-debug.log
+yarn-error.log
+
+# VS Code
+.vscode/
+
+# Database dumps (if you don't want to include large SQL files)
+*.sql
+*.sql.gz
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Optional: Git LFS for very large files
+# Use git lfs for binaries/media
+>>>>>>> c3cb12fe9be01ddbc83d34a506b62057b24ed6cc
+>>>>>>> a6689d9740a7840511b4df4480da5bf6dc3d0c3a
