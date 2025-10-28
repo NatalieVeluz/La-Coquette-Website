@@ -1,0 +1,62 @@
+<div class="container product-detail" *ngIf="product">
+  <!-- Back Button -->
+  <div class="back-button-container">
+    <button class="back-button" (click)="goBack()">← Back</button>
+  </div>
+
+  <div class="product-grid">
+    <!-- Product Image -->
+    <div class="product-image">
+      <img
+        [src]="getProductImage(product)"
+        alt="{{ product.name }}"
+        class="product-detail-img"
+        (error)="onImageError($event)"
+        (load)="onImageLoad($event)"
+      />
+    </div>
+
+    <!-- Product Info -->
+    <div class="product-info">
+      <h2 class="product-detail-name">{{ product.name }}</h2>
+      <p><strong>Category:</strong> {{ product.categoryName }}</p>
+
+      <p class="product-description">{{ product.description }}</p>
+      <p class="product-detail-price"><strong>Price:</strong> ₱{{ product.price }}</p>
+
+      <!-- Product Options -->
+      <div class="product-options">
+        <div class="option">
+          <label for="size">Size:</label>
+          <!-- This always defaults to Small -->
+          <select id="size" [(ngModel)]="selectedSize">
+            <option value="Small">Small</option>
+            <option value="Medium">Medium</option>
+            <option value="Large">Large</option>
+          </select>
+        </div>
+
+        <div class="option">
+          <label for="quantity">Quantity:</label>
+          <input type="number" id="quantity" [(ngModel)]="quantity" min="1" />
+        </div>
+
+        <!-- Add to Cart Button -->
+        <button class="btn btn-success add-to-cart-btn" (click)="addToCart()">
+          <img
+            src="assets/icons/shoppingcart.svg"
+            alt="Add to Cart"
+            width="20"
+            height="20"
+          />
+          Add to Cart
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div *ngIf="showToast" class="toast">
+    {{ toastMessage }}
+  </div>
+</div>

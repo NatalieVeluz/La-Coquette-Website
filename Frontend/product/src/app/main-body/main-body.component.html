@@ -1,0 +1,28 @@
+<!-- Header Image -->
+<div class="header-image">
+  <img 
+    src="assets/images/Banner.jpg" 
+    alt="Header Image" 
+    title="Header Image">
+</div>
+
+<!-- Category Section -->
+<div class="category-section">
+  <div class="category-card" *ngFor="let button of categoryButtons">
+    <h3 class="category-title">{{ button.name }}</h3> 
+    <img 
+      [src]="button.image" 
+      [alt]="button.name" 
+      [title]="button.name">
+    <button (click)="goToCategory(button.category)">
+      Shop Now
+    </button>
+  </div>
+</div>
+
+<div class="header-image">
+  <img 
+    src="assets/images/Promo.jpg" 
+    alt="Header Image" 
+    title="Header Image">
+</div>

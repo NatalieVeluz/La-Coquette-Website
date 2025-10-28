@@ -1,0 +1,83 @@
+<div class="container mt-4">
+  <h2>Checkout</h2>
+
+  <div *ngIf="cartItems.length === 0">
+    <p>Your cart is empty.</p>
+    <button routerLink="/product" class="btn btn-primary">Browse Products</button>
+  </div>
+
+  <div *ngIf="cartItems.length > 0">
+    <!-- 🛒 CART ITEMS PREVIEW TABLE -->
+    <table class="table table-striped align-middle">
+      <thead class="table-dark">
+        <tr>
+          <th>Image</th>
+          <th>Product Name</th>
+          <th>Size</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Subtotal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of cartItems">
+          <td>
+            <img
+              [src]="'assets/products/' + item.product.imageFile + '.jpg'"
+              alt="{{ item.product.name }}"
+              width="60"
+              height="60"
+              (error)="item.product.imageFile = 'default'"
+            />
+          </td>
+          <td>{{ item.product.name }}</td>
+          <td>{{ item.size }}</td>
+          <td>{{ item.quantity }}</td>
+          <td>₱{{ item.product.price }}</td>
+          <td><strong>₱{{ item.price }}</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- ORDER SUMMARY -->
+    <div class="total-section">
+      <h4>Total:</h4>
+      <h4 class="total-amount">₱{{ total }}</h4>
+    </div>
+
+    <!-- SHIPPING ADDRESS -->
+    <div class="mb-3">
+      <label for="shippingAddress" class="form-label">Shipping Address</label>
+      <textarea
+        id="shippingAddress"
+        class="form-control"
+        [(ngModel)]="shippingAddress"
+        rows="2"
+        placeholder="Enter your shipping address"
+      ></textarea>
+    </div>
+
+    <!-- PAYMENT METHOD -->
+    <div class="mb-3">
+      <label for="paymentMethod" class="form-label">Payment Method</label>
+      <select
+        id="paymentMethod"
+        class="form-select w-50"
+        [(ngModel)]="paymentMethod"
+      >
+        <option value="COD">Cash on Delivery</option>
+        <option value="Gcash">Gcash</option>
+        <option value="Bank">Bank Transfer</option>
+        <option value="CreditCard">Credit Card</option>
+        <option value="Paypal">Paypal</option>
+      </select>
+    </div>
+
+    <!-- SUBMIT BUTTON -->
+    <div class="text-end mt-4">
+      <button class="btn btn-success px-4" (click)="submitOrder()">
+        Place Order
+      </button>
+    </div>
+  </div>
+</div>

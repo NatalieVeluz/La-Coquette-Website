@@ -1,0 +1,45 @@
+<div *ngIf="cartItems.length === 0" class="empty-cart">
+  <p>Your cart is empty.</p>
+</div>
+
+<div *ngIf="cartItems.length > 0">
+  <!-- Cart Items -->
+  <div *ngFor="let item of cartItems" class="cart-item">
+    <img
+      class="cart-product-img"
+      src="assets/products/{{ item.product.imageFile }}.jpg"
+      alt="{{ item.product.name }}"
+    />
+
+    <div class="cart-product-info">
+      <h4>{{ item.product.name }}</h4>
+      <p>Size: {{ item.size }}</p>
+      <p>Price: ₱{{ item.product.price }}</p>
+
+      <label>
+        Quantity:
+        <input
+          type="number"
+          [(ngModel)]="item.quantity"
+          (change)="updateQuantity(item, item.quantity)"
+          min="1"
+        />
+      </label>
+
+      <p>Subtotal: ₱{{ getSubtotal(item) }}</p>
+
+      <button (click)="removeItem(item)" class="btn btn-danger">
+        Remove
+      </button>
+    </div>
+  </div>
+
+  <!-- Cart Summary Section -->
+  <div class="cart-summary">
+    <hr />
+    <h3>Total: ₱{{ getTotal() }}</h3>
+    <button (click)="proceedToCheckout()" class="btn btn-primary">
+      Proceed to Checkout
+    </button>
+  </div>
+</div>

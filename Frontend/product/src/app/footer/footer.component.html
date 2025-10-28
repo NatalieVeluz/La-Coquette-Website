@@ -1,0 +1,50 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+
+<footer class="footer">
+  <div class="footer-content">
+
+    <!-- About Section -->
+    <div class="footer-section about">
+      <img src="assets/images/logo.jpg" alt="La Coquette Logo" class="footer-logo">
+
+      <p>3rd Floor, Main Mall, SM Mall of Asia, <br> 
+         Coral Way, Pasay City,  <br>
+         Metro Manila, Philippines</p>
+      <p><strong>Contacts:</strong></p>
+      <p>Email: hello@lacoquette.com</p>
+      <p>Phone: +63 967 486 2004</p>
+    </div>
+
+    <!-- Quick Links (Dynamic) -->
+    <div class="footer-section links">
+      <h3>QUICK LINKS</h3>
+      <ul>
+         <li *ngFor="let link of quickLinks" (click)="navigate(link.path)" class="quick-link-item">
+            {{ link.label }}
+         </li>
+      </ul>
+
+
+    </div>
+
+    <!-- Social Icons (Dynamic) -->
+    <div class="footer-section social">
+      <h3>SOCIALS</h3>
+      <div class="social-icons">
+         <div class="social-item" *ngFor="let s of socialLinks">
+            <a [href]="s.url" target="_blank">
+            <i [ngClass]="s.icon"></i>
+            </a>
+            <span>{{ s.label }}</span>
+         </div>
+      </div>
+      </div>
+
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2025 La Coquette. All rights reserved.
+  </div>
+</footer>

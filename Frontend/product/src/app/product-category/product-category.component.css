@@ -1,0 +1,123 @@
+/* Category name wrapper aligned with grid */
+.category-name-wrapper {
+  max-width: 90%;
+  margin: 0 auto 10px auto;
+  padding: 0 15px;
+}
+
+.category-name {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #3d091a;
+  border-bottom: 2px solid #af5572;
+  padding-bottom: 5px;
+  margin-top: 50px;
+}
+
+/* Grid container */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin: 0 auto 50px auto;
+  max-width: 90%;
+  padding: 0 15px;
+}
+
+/* Product box */
+.box {
+  border: 1px solid #af5572;
+  padding: 15px;
+  background-color: #f4c2c2;;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Product image */
+.productimg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.productimg.loaded {
+  opacity: 1;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+/* Product text */
+.productname {
+  font-size: 1rem;
+  margin: 15px 0;
+  color: #3d091a;
+}
+
+.productprice {
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #3d091a;
+}
+
+/* Add to Cart button */
+.add-to-cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  font-weight: bold;
+  padding: 8px 12px;
+  background-color: #d86a78;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 3px 6px rgba(216, 106, 120, 0.3);
+}
+
+/* Hover effect — subtle glow and darker pink tone */
+.add-to-cart:hover {
+  background-color: #c35b69;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 10px rgba(246, 200, 226, 0.5);
+}
+
+/* Optional: pressed state */
+.add-to-cart:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2) inset;
+}
+
+.add-to-cart img {
+  width: 25px;
+  height: 25px;
+}
+
+/* Responsive layouts */
+@media (max-width: 991px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 700px;
+  }
+}
+
+@media (max-width: 576px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    max-width: 90%;
+  }
+}

@@ -1,0 +1,96 @@
+<div class="container mt-4">
+  <h2>My Orders</h2>
+
+  <!-- No orders -->
+  <div *ngIf="orders.length === 0" class="empty-orders text-center">
+    <p>You haven’t placed any orders yet.</p>
+    <a routerLink="/product" class="btn btn-primary">Start Shopping</a>
+  </div>
+
+  <!-- Orders exist -->
+  <div *ngIf="orders.length > 0">
+    <div *ngFor="let order of orders" class="order-card mb-4 p-4 rounded shadow-sm">
+
+      <!-- Header -->
+      <div class="order-header d-flex justify-content-between align-items-start mb-3">
+        <div>
+          <h5>Order #{{ order.id }}</h5>
+          <p class="order-date">{{ order.orderDate | date: 'medium' }}</p>
+        </div>
+
+        <div class="text-end">
+          <span
+            class="badge px-3 py-2"
+            [ngClass]="{
+              'badge-pending': order.status === 'pending',
+              'badge-completed': order.status === 'completed',
+              'badge-cancelled': order.status === 'cancelled'
+            }">
+            {{ order.status | titlecase }}
+          </span>
+        </div>
+      </div>
+
+      <!-- Order Items Table -->
+      <div class="order-details mt-2">
+        <table class="table align-middle text-center">
+          <thead class="table-dark">
+            <tr>
+              <th>Image</th>
+              <th>Product</th>
+              <th>Size</th>
+              <th>Quantity</th>
+              <th>Price</th>
+              <th>Subtotal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of order.items">
+              <td>
+                <img
+                  [src]="'assets/products/' + item.product?.imageFile + '.jpg'"
+                  alt="{{ item.product?.name }}"
+                  (error)="item.product.imageFile = 'default'"
+                  width="70"
+                  height="70"
+                  class="rounded shadow-sm"
+                />
+              </td>
+              <td>{{ item.product?.name }}</td>
+              <td>{{ item.size }}</td>
+              <td>{{ item.quantity }}</td>
+              <td>₱{{ item.product?.price }}</td>
+              <td><strong>₱{{ item.price }}</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Order Footer -->
+      <div class="order-footer d-flex justify-content-between align-items-end mt-3 flex-wrap">
+        <div class="footer-left">
+          <p><strong>Shipping Address:</strong> {{ order.shippingAddress }}</p>
+          <p><strong>Payment:</strong> {{ order.paymentMethod }}</p>
+        </div>
+
+        <div class="footer-right text-end mt-2">
+          <h5 class="text-primary mb-2">Total: ₱{{ order.totalPrice }}</h5>
+
+          <div *ngIf="order.status === 'pending'">
+            <button
+              class="btn btn-success btn-sm me-2"
+              (click)="markAsReceived(order.id)">
+              Received Order
+            </button>
+
+            <button
+              class="btn btn-danger btn-sm"
+              (click)="cancelOrder(order.id)">
+              Cancel Order
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

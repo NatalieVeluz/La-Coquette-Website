@@ -1,0 +1,72 @@
+<section id="about" class="hero">
+  <div class="hero-content">
+    <h1>{{ hero.title }}</h1>
+    <p>{{ hero.description }}</p>
+
+    <div class="stats">
+      <div class="stat" *ngFor="let stat of hero.stats">
+        <h2>{{ stat.value }}</h2>
+        <p>{{ stat.label }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-image">
+    <img [src]="hero.image" alt="Fashion Hero Image" />
+  </div>
+</section>
+
+<section class="values">
+  <h2>Our Core Values</h2>
+  <div class="values-grid">
+    <div class="value" *ngFor="let v of values">
+      <i [class]="v.icon"></i>
+      <h3>{{ v.title }}</h3>
+      <p>{{ v.text }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="team">
+  <h2>Meet the Team</h2>
+  <div class="team-grid">
+    <div class="team-member" *ngFor="let m of team">
+      <img [src]="m.img" [alt]="m.name" />
+      <h3>{{ m.name }}</h3>
+      <p>{{ m.role }}</p>
+      <p>{{ m.desc }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="gallery">
+  <h2>Our Latest Looks</h2>
+  <div class="gallery-grid">
+    <img *ngFor="let g of gallery" [src]="g" alt="Gallery Image" />
+  </div>
+</section>
+
+<section class="story">
+  <h2>{{ story.title }}</h2>
+  <p>{{ story.text }}</p>
+</section>
+
+<section id="contact" class="contact">
+  <div class="contact-container">
+    <h2>Contact Us</h2>
+    <p>We’d love to hear from you — send us a message below!</p>
+
+    <form (ngSubmit)="submitForm()">
+      <label for="name">Name</label>
+      <input id="name" name="name" required />
+
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" required />
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="4" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</section>

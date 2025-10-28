@@ -1,0 +1,36 @@
+<div *ngFor="let category of productsCategory" class="category-section mb-5" [attr.id]="category.categoryName">
+  <!-- Category Header -->
+  <div class="category-name-wrapper">
+    <div class="category-name">
+      <strong>{{ category.categoryName }}</strong>
+    </div>
+  </div>
+
+  <!-- Product Grid -->
+  <div class="grid-container">
+    <div class="box" *ngFor="let prod of category.products">
+      <!-- Product Image -->
+      <div class="image-wrapper" (click)="goToDetails(prod)">
+        <img
+          class="productimg clickable"
+          [src]="getProductImage(prod)"
+          alt="{{ prod.name }}"
+          (error)="onImageError($event)"
+          (load)="onImageLoad($event)"
+        />
+      </div>
+
+      <!-- Product Name -->
+      <p class="productname"><strong>{{ prod.name }}</strong></p>
+
+      <!-- Product Price -->
+      <p class="productprice">₱{{ prod.price }}</p>
+
+      <!-- Add to Cart Button -->
+      <button class="btn btn-primary add-to-cart" (click)="addToCart(prod)">
+        <img src="assets/icons/shoppingcart.svg" alt="Add to Cart" />
+        Add to Cart
+      </button>
+    </div>
+  </div>
+</div>
