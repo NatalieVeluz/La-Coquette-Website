@@ -11,7 +11,7 @@ A full-stack fashion eCommerce web application built with **Angular**, **Spring 
 This project currently focuses on the **customer-side experience**, providing a functional shopping workflow while serving as a foundation for future enhancements such as an administrative dashboard and complete backend integration.
 
 ---
-# 📸 Screenshots
+# Application Preview
 
 ## Login & Registration
 
