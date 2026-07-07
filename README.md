@@ -11,6 +11,57 @@ A full-stack fashion eCommerce web application built with **Angular**, **Spring 
 This project currently focuses on the **customer-side experience**, providing a functional shopping workflow while serving as a foundation for future enhancements such as an administrative dashboard and complete backend integration.
 
 ---
+# 📸 Screenshots
+
+## Login & Registration
+
+| Login | Register |
+|--------|----------|
+| ![](images/login-page.png) | ![](images/register-page.png) |
+
+---
+
+## Home Page
+
+![](images/home-page.png)
+
+---
+
+## About Page
+
+![](images/about-page.png)
+
+---
+
+## Product Catalog
+
+![](images/product-page.png)
+
+---
+
+## Product Details
+
+![](images/product-details-page.png)
+
+---
+
+## Shopping Cart
+
+![](images/cart-page.png)
+
+---
+
+## Checkout
+
+![](images/checkout-page.png)
+
+---
+
+## Order History
+
+![](images/orders-page.png)
+
+---
 
 # Current Features
 
@@ -110,30 +161,6 @@ Planned enhancements include:
 - Order Items
 - Payments
 - Menu Data
-
----
-
-# Project Structure
-
-```
-La-Coquette-Website
-│
-├── Database
-│   ├── ecom_customers.sql
-│   ├── ecom_hibernate_sequence.sql
-│   ├── ecom_menu_data.sql
-│   ├── ecom_order_item_data.sql
-│   ├── ecom_orders.sql
-│   ├── ecom_payments.sql
-│   └── ecom_products.sql
-│
-├── ecommerce
-│   └── Spring Boot Backend
-│
-└── Main Front
-    └── Product
-        └── Angular Frontend
-```
 
 ---
 
